@@ -1,29 +1,3 @@
-/*
- * ============================================================
- *  Subscription-Based Car Rental & Maintenance Hub
- *  OOP Lab Project | Muhammad Ali Jinnah University
- * ============================================================
- *  Pillars demonstrated:
- *  1. Encapsulation   - private fields + validated getters/setters
- *  2. Abstraction     - abstract base classes (RentalEntity, IReport)
- *  3. Inheritance     - Vehicle -> Car / SUV / Luxury
- *                       SubscriptionPlan -> Basic / Standard / Premium
- *  4. Polymorphism    - virtual overrides + overloaded generateReport()
- *  5. Composition     - Hub has-a vector<Customer>
- *                       Customer has-a SubscriptionPlan* + vector<Booking>
- *                       Vehicle has-a MaintenanceRecord
- * ------------------------------------------------------------
- *  Roles:
- *  - Admin    : logs in with username/password.
- *               Can service vehicles, view all customers,
- *               view reports, and upgrade customer plans.
- *  - Customer : logs in with their own Customer ID (or registers
- *               a brand new account first). Can view vehicles,
- *               rent, return, and cancel bookings for themselves
- *               only.
- * ============================================================
- */
-
 #include <iostream>
 #include <string>
 #include <vector>
@@ -33,18 +7,12 @@
 #include <algorithm>
 using namespace std;
 
-// ---------------------------------------------
-//  HELPER - clear cin after bad input
-// ---------------------------------------------
+
 void clearInput() {
     cin.clear();
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
 
-// ---------------------------------------------
-//  COMPOSITION CLASS - MaintenanceRecord
-//  Encapsulates service history of a single vehicle
-// ---------------------------------------------
 class MaintenanceRecord {
 private:
     string lastServiceDate;   // "YYYY-MM-DD" format
